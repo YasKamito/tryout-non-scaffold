@@ -11,9 +11,12 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><%= link_to user.name, user_path(user) %></td>
+        <td><%= link_to '編集', edit_user_path(user) %></td>
+        <td><%= link_to '削除', user_path(user), method: 'DELETE' %></td>
         <td><%= user.department %></td>
       </tr>
     <% end %>
+    <%= link_to '新規ユーザ登録', new_user_path %>
   </tbody>
 </table>
