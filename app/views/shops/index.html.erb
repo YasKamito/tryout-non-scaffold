@@ -1,0 +1,22 @@
+<h1>店舗一覧</h1>
+ 
+<table>
+  <thead>
+    <tr>
+      <th>店舗名</th>
+      <th> 住所</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <% @shops.each do |shop| %>
+      <tr>
+        <td><%= link_to shop.shopname, shop_path(shop) %></td>
+        <td><%= link_to '編集', edit_shop_path(shop) %></td>
+        <td><%= link_to '削除', shop_path(shop), method: 'DELETE' %></td>
+        <td><%= shop.address %></td>
+      </tr>
+    <% end %>
+    <%= link_to '新規店舗登録', new_shop_path %>
+  </tbody>
+</table>

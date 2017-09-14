@@ -1,0 +1,22 @@
+<h1>支払い方法一覧</h1>
+ 
+<table>
+  <thead>
+    <tr>
+      <th>支払い名</th>
+      <th>タイプ</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <% @cashes.each do |cash| %>
+      <tr>
+        <td><%= link_to cash.name, cash_path(cash) %></td>
+        <td><%= link_to '編集', edit_cash_path(cash) %></td>
+        <td><%= link_to '削除', cash_path(cash), method: 'DELETE' %></td>
+        <td><%= cash.cashtype %></td>
+      </tr>
+    <% end %>
+    <%= link_to '新規支払い方法登録', new_cash_path %>
+  </tbody>
+</table>
